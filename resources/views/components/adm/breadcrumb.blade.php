@@ -1,10 +1,10 @@
 @props(['title' => 'Adm System', ])
 <div class="container-fluid">
-    @section('title') {{$title}} @endsection
+    @section('title') {{ $breadcrumb_title ?? '' }} @endsection
     <div class="page-header">
         <div class="row">
             <div class="col-lg-6">
-                {{ $breadcrumb_title ?? '' }}
+                <h3>{{ $breadcrumb_title ?? '' }}</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('adm') }}">Dashboard</a></li>
                     {{ $slot ?? ''}}

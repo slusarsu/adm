@@ -3,11 +3,9 @@
 @section('content')
     <x-adm.breadcrumb>
         <x-slot name="breadcrumb_title">
-            {{__('adm.dashboard')}}
+            {{__('adm.menu')}}
         </x-slot>
-        <li class="breadcrumb-item">Starter Kit</li>
-        <li class="breadcrumb-item">Color Version</li>
-        <li class="breadcrumb-item active">Layout Light</li>
+        <li class="breadcrumb-item">{{__('adm.menu')}}</li>
     </x-adm.breadcrumb>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
