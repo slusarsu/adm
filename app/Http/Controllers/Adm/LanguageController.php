@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adm;
 use App\Adm\Services\LanguageService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Adm\Language\CreateRequest;
+use App\Http\Requests\Adm\Language\UpdateRequest;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -42,18 +43,24 @@ class LanguageController extends Controller
      */
     public function store(CreateRequest $request): RedirectResponse
     {
-        dd($request);
-        return back()->with('success', lang('adm.created_successfully'));
+        $requestData = $request->validated();
+
+        $item = $this->languageService->store($requestData);
+
+        return redirect()->route('adm.language-edit', $item->id)->with('success', trans('adm.created_successfully'));
     }
 
-    public function edit(Request $request)
+    public function edit(Request $request, $id): Factory|View|Application
     {
-        return view('adm.language.edit');
+        $item = $this->languageService->getById($id);
+        return view('adm.language.edit', compact('item'));
     }
 
-    public function update(Request $request)
+    public function update(UpdateRequest $request)
     {
-
+        $requestData = $request->validated();
+        $this->languageService->update($requestData);
+        return back()->with('success', trans('adm.updated_successfully'));
     }
 
     public function delete(Request $request)

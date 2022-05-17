@@ -42,6 +42,7 @@
             <x-adm.sidebar/>
             <!-- Page Sidebar Ends-->
             <div class="page-body">
+                @includeIf('adm.partials.alerts')
                 @yield('content')
             </div>
             <!-- footer start-->

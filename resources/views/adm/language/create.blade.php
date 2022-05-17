@@ -21,25 +21,25 @@
 
                     <div class="mb-3">
                         <label class="col-form-label pt-0" for="name">{{__('adm.name')}}*</label>
-                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_language_name')}}">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_language_name')}}" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="col-form-label pt-0" for="native-name">{{__('adm.native_name')}}</label>
-                        <input class="form-control" id="native-name" name="native-name" type="text" placeholder="{{__('adm.native_name')}}">
+                        <input class="form-control" id="native-name" name="native_name" type="text" placeholder="{{__('adm.native_name')}}">
                     </div>
 
                     <div class="row">
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="code">{{__('adm.code')}}*</label>
-                                <input class="form-control" id="code" name="code" type="text" placeholder="{{__('adm.enter_language_code')}}">
+                                <input class="form-control" id="code" name="code" type="text" placeholder="{{__('adm.enter_language_code')}}" required>
                             </div>
                         </div>
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="direction">{{__('adm.direction')}}</label>
-                                <select class="form-select digits" id="direction" name="direction">
+                                <select class="form-select digits" id="direction" name="direction" required>
                                     <option>ltr</option>
                                     <option>rtl</option>
                                 </select>
@@ -48,7 +48,7 @@
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="enabled">{{__('adm.enabled')}}</label>
-                                <select class="form-select" id="enabled" name="enabled">
+                                <select class="form-select" id="enabled" name="enabled" required>
                                     <option value="1">{{__('adm.enabled')}}</option>
                                     <option value="0">{{__('adm.disabled')}}</option>
                                 </select>
@@ -59,8 +59,8 @@
                 </div>
 
                 <div class="card-footer">
-                    <button class="btn btn-primary">{{__('adm.submit')}}</button>
-                    <button class="btn btn-secondary">{{__('adm.cancel')}}</button>
+                    <button class="btn btn-primary" type="submit">{{__('adm.submit')}}</button>
+                    <a href="{{route('adm.language')}}" class="btn btn-secondary">{{__('adm.cancel')}}</a>
                 </div>
 
             </div>
