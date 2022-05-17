@@ -3,14 +3,10 @@
 @section('content')
     <x-adm.breadcrumb>
         <x-slot name="breadcrumb_title">
-            {{__('adm.create_menu')}}
+            {{__('adm.language')}}
         </x-slot>
-        <li class="breadcrumb-item">
-            <a href="{{route('adm.menu')}}">{{__('adm.menu')}}</a>
-        </li>
-        <li class="breadcrumb-item">{{__('adm.create_menu')}}</li>
+        <li class="breadcrumb-item">{{__('adm.language')}}</li>
     </x-adm.breadcrumb>
-
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">

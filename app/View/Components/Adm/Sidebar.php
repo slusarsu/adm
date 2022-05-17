@@ -2,10 +2,13 @@
 
 namespace App\View\Components\Adm;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\View\Component;
 
 class Sidebar extends Component
 {
+    public ?Authenticatable $user;
+
     /**
      * Create a new component instance.
      *
@@ -13,7 +16,7 @@ class Sidebar extends Component
      */
     public function __construct()
     {
-        //
+        $this->user = auth()->user();
     }
 
     /**

@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('lang')->nullable();
+            $table->string('code')->unique();
+            $table->string('name')->unique();
+            $table->string('native_name')->nullable();
+            $table->string('direction')->default('ltr');
             $table->boolean('enabled')->default(true);
-            $table->json('items')->nullable();
+            $table->string('icon_link')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('languages');
     }
 };

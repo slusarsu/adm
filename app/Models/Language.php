@@ -6,18 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property string $code
  * @property string $name
- * @property string $lang
+ * @property string $native_name
+ * @property string $direction
  * @property bool $enabled
  */
-class Menu extends Model
+class Language extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'code',
         'name',
-        'lang',
+        'native_name',
+        'direction',
         'enabled',
-        'items',
     ];
 }
