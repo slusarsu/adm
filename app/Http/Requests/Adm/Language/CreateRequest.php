@@ -24,9 +24,9 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'name' => 'required|string|unique:languages,name',
+            'code' => 'required|string|unique:languages,code',
             'native-name' => 'nullable|string',
-            'code' => 'required|string',
             'direction' => 'required|string',
             'enabled' => 'required|boolean'
         ];

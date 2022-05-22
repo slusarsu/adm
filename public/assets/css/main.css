@@ -1,0 +1,39 @@
+.adm-sortable {
+    cursor: pointer;
+}
+
+.adm-sortable::before {
+    font-family: "FontAwesome";
+    content: "\f0dc";
+}
+
+.adm-sortable-desc::before {
+    font-family: "FontAwesome";
+    content: "\f161";
+}
+
+.adm-sortable-asc::before {
+    font-family: "FontAwesome";
+    content: "\f884";
+}
+
+.id-column {
+    width: 60px;
+}
+
+.action-column {
+    width: 155px;
+}
+
+.page-item.active .page-link {
+    background-color: #24695c;
+    border-color: #24695c;
+}
+
+.page-link {
+    color: #24695c;
+}
+
+/*.table-responsive {*/
+/*    min-height: 200px;*/
+/*}*/

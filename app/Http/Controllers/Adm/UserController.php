@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Adm;
 
 use Illuminate\Http\Request;
+use App\Adm\Services\UserService;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
-use App\Adm\Services\LanguageService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\Foundation\Application;
-use App\Http\Requests\Adm\Language\UpdateRequest;
 use App\Http\Requests\Adm\Language\CreateRequest;
+use App\Http\Requests\Adm\Language\UpdateRequest;
 
-class LanguageController extends Controller
+class UserController extends Controller
 {
-    private LanguageService $baseService;
+    private UserService $baseService;
 
-    public function __construct(LanguageService $languageService)
+    public function __construct(UserService $userService)
     {
-        $this->baseService = $languageService;
+        $this->baseService = $userService;
     }
 
     /**
@@ -30,7 +30,7 @@ class LanguageController extends Controller
         $items = $this->baseService->getTableData($request);
         $trashedCount = $this->baseService->trashedCount();
 
-        return view('adm.language.index', compact('items', 'trashedCount'));
+        return view('adm.user.index', compact('items', 'trashedCount'));
     }
 
     /**
@@ -41,7 +41,7 @@ class LanguageController extends Controller
     {
         $items = $this->baseService->getTableData($request,true);
 
-        return view('adm.language.trashed', compact('items'));
+        return view('adm.user.trashed', compact('items'));
     }
 
     /**
@@ -49,7 +49,7 @@ class LanguageController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        return view('adm.language.create');
+        return view('adm.user.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class LanguageController extends Controller
 
         $item = $this->baseService->store($requestData);
 
-        return redirect()->route('adm.language-edit', $item->id)->with('success', trans('adm.created_successfully'));
+        return redirect()->route('adm.user-edit', $item->id)->with('success', trans('adm.created_successfully'));
     }
 
     /**
@@ -73,7 +73,7 @@ class LanguageController extends Controller
     public function edit(Request $request, $id): Factory|View|Application
     {
         $item = $this->baseService->getById($id);
-        return view('adm.language.edit', compact('item'));
+        return view('adm.user.edit', compact('item'));
     }
 
     /**

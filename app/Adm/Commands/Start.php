@@ -20,7 +20,7 @@ class Start extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'First install all migrations and seeders';
 
     /**
      * Create a new command instance.

@@ -2,16 +2,16 @@
 
 namespace App\Adm\Services; 
 
-use App\Models\Language;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
-class LanguageService
+class UserService
 {
-    private Language $baseModel;
+    private User $baseModel;
 
-    public function __construct(Language $baseModel)
+    public function __construct(User $baseModel)
     {
         $this->baseModel = $baseModel;
     }
@@ -127,12 +127,9 @@ class LanguageService
         }
 
         if($search) {
-            $query = $this->search($query, $search, ['code', 'name', 'native_name']);
+            $query = $this->search($query, $search, ['name', 'email']);
         }
 
         return $query->orderBy($filter, $order)->paginate($paginate);
     }
-
-
-
 }

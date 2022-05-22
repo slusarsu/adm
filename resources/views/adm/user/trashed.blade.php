@@ -3,9 +3,11 @@
 @section('content')
     <x-adm.breadcrumb>
         <x-slot name="breadcrumb_title">
-            {{__('adm.languages')}}
+            {{__('adm.trashed')}}
         </x-slot>
-        <li class="breadcrumb-item">{{__('adm.languages')}}</li>
+        <li class="breadcrumb-item">
+            <a href="{{route('adm.language')}}">{{__('adm.languages')}}</a>
+        </li>
     </x-adm.breadcrumb>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
@@ -16,15 +18,15 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex">
-                        <x-adm.button.create :url="route('adm.language-create')"/>
-                        <x-adm.button.bulk-actions
-                            :trashUrl="route('adm.language-bulk-trash')"
+                        <x-adm.button.btn-link
+                            :url="route('adm.language')"
+                            :translateText="'adm.languages'"
+                            :iconClass="'fa fa-mail-reply'"
                         />
-                        <a href="{{route('adm.language-trashed')}}" class="btn btn-danger mx-1">
-                            <i class="fa fa-trash-o"></i>
-                            {{__('adm.trashed')}} {{$trashedCount}}
-                        </a>
-
+                        <x-adm.button.bulk-actions
+                            :restoreUrl="route('adm.language-bulk-restore')"
+                            :removeUrl="route('adm.language-bulk-remove')"
+                        />
                     </div>
                     <div>
                         <x-adm.form.filter-search/>
@@ -32,9 +34,9 @@
                 </div>
                 <div class="card-block row">
                     <div class="col-sm-12 col-lg-12 col-xl-12">
-                        <div class="table-responsive-sm">
+                        <div class="table-responsive">
                             <table class="table table-border-vertical">
-                                <thead class="table-success">
+                                <thead class="table-danger">
                                 <tr>
                                     <th class="id-column">
                                         <x-adm.table.checkbox-all/>
@@ -68,8 +70,8 @@
                                             <td>{{$item->native_name}}</td>
                                             <td class="text-end">
                                                 <x-adm.button.table-actions
-                                                    :editUrl="route('adm.language-edit', $item->id)"
-                                                    :trashUrl="route('adm.language-trash', $item->id)"
+                                                    :restoreUrl="route('adm.language-restore', $item->id)"
+                                                    :removeUrl="route('adm.language-remove', $item->id)"
                                                 />
                                             </td>
                                         </tr>

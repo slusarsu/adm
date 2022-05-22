@@ -21,7 +21,7 @@ class CodeGenerator extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'adm:code-generate {name}. Will create controller and service';
 
     private Filesystem $filesystem;
 

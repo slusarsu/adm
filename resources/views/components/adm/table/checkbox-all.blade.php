@@ -1,0 +1,1 @@
+<input class="checkbox_animated table-item-check" id="chk-all" type="checkbox">

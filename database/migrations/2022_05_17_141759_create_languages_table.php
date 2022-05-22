@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('direction')->default('ltr');
             $table->boolean('enabled')->default(true);
             $table->string('icon_link')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
