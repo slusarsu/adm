@@ -1,19 +1,23 @@
 @extends('adm.layouts.app')
 
+@push('css')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/select2.css') }}">
+@endpush
+
 @section('content')
     <x-adm.breadcrumb>
         <x-slot name="breadcrumb_title">
-            {{__('adm.create_language')}}
+            {{__('adm.create_user')}}
         </x-slot>
         <li class="breadcrumb-item">
-            <a href="{{route('adm.language')}}">{{__('adm.languages')}}</a>
+            <a href="{{route('adm.user')}}">{{__('adm.users')}}</a>
         </li>
-        <li class="breadcrumb-item">{{__('adm.create_language')}}</li>
+        <li class="breadcrumb-item">{{__('adm.create_user')}}</li>
     </x-adm.breadcrumb>
 
     <!-- Container-fluid starts-->
     <div class="container-fluid">
-        <form method="post" action="{{route('adm.language-store')}}">
+        <form method="post" action="{{route('adm.user-store')}}">
             @csrf
             <div class="card">
 
@@ -21,28 +25,29 @@
 
                     <div class="mb-3">
                         <label class="col-form-label pt-0" for="name">{{__('adm.name')}}*</label>
-                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_language_name')}}" required>
+                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_name')}}" required value="{{old('name')}}">
                     </div>
 
                     <div class="mb-3">
-                        <label class="col-form-label pt-0" for="native-name">{{__('adm.native_name')}}</label>
-                        <input class="form-control" id="native-name" name="native_name" type="text" placeholder="{{__('adm.native_name')}}">
+                        <label class="col-form-label pt-0" for="email">{{__('adm.email')}}*</label>
+                        <input class="form-control" id="email" name="email" type="text" placeholder="{{__('adm.email')}}" value="{{old('email')}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <x-adm.form.select2-multiple
+                                :label="'adm.roles'"
+                                :name="'roles'"
+                                :id="'user-roles'"
+                                :required="false"
+                                :data="$roles"
+                        />
                     </div>
 
                     <div class="row">
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
-                                <label class="col-form-label pt-0" for="code">{{__('adm.code')}}*</label>
-                                <input class="form-control" id="code" name="code" type="text" placeholder="{{__('adm.enter_language_code')}}" required>
-                            </div>
-                        </div>
-                        <div class="cl-sm-12 col-md-4">
-                            <div class="mb-3">
-                                <label class="col-form-label pt-0" for="direction">{{__('adm.direction')}}</label>
-                                <select class="form-select digits" id="direction" name="direction" required>
-                                    <option>ltr</option>
-                                    <option>rtl</option>
-                                </select>
+                                <label class="col-form-label pt-0" for="code">{{__('adm.password')}}*</label>
+                                <input class="form-control" id="code" name="password" type="text" placeholder="{{__('adm.enter_password')}}" required>
                             </div>
                         </div>
                         <div class="cl-sm-12 col-md-4">
@@ -60,7 +65,7 @@
 
                 <div class="card-footer">
                     <button class="btn btn-primary" type="submit">{{__('adm.submit')}}</button>
-                    <a href="{{route('adm.language')}}" class="btn btn-secondary">{{__('adm.cancel')}}</a>
+                    <a href="{{route('adm.user')}}" class="btn btn-secondary">{{__('adm.cancel')}}</a>
                 </div>
 
             </div>
@@ -68,4 +73,8 @@
         </form>
     </div>
     <!-- Container-fluid Ends-->
+    @push('scripts')
+        <script src="{{ asset('/assets/js/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('/assets/js/select2/select2-custom.js') }}"></script>
+    @endpush
 @endsection

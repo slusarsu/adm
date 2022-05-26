@@ -21,27 +21,27 @@
 
                     <div class="mb-3">
                         <label class="col-form-label pt-0" for="name">{{__('adm.name')}}*</label>
-                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_language_name')}}" required>
+                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_language_name')}}" required value="{{old('name')}}">
                     </div>
 
                     <div class="mb-3">
                         <label class="col-form-label pt-0" for="native-name">{{__('adm.native_name')}}</label>
-                        <input class="form-control" id="native-name" name="native_name" type="text" placeholder="{{__('adm.native_name')}}">
+                        <input class="form-control" id="native-name" name="native_name" type="text" placeholder="{{__('adm.native_name')}}" value="{{old('native_name')}}">
                     </div>
 
                     <div class="row">
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="code">{{__('adm.code')}}*</label>
-                                <input class="form-control" id="code" name="code" type="text" placeholder="{{__('adm.enter_language_code')}}" required>
+                                <input class="form-control" id="code" name="code" type="text" placeholder="{{__('adm.enter_language_code')}}" required value="{{old('code')}}">
                             </div>
                         </div>
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="direction">{{__('adm.direction')}}</label>
-                                <select class="form-select digits" id="direction" name="direction" required>
-                                    <option>ltr</option>
-                                    <option>rtl</option>
+                                <select class="form-select digits" id="direction" name="direction" required >
+                                    <option value="ltr">ltr</option>
+                                    <option value="rtl">rtl</option>
                                 </select>
                             </div>
                         </div>

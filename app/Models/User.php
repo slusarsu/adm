@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -45,4 +46,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    public function hasRole($roleName): int
+    {
+        return $this->roles()->where('name', $roleName)->count();
+    }
+
+    public function hasRoles($roleNames): int
+    {
+        return $this->roles()->whereIn('name', $roleNames)->count();
+    }
+
+    public function getRoleLabels(): Collection
+    {
+        return $this->roles()->pluck('label');
+    }
 }

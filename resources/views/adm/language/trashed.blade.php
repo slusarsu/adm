@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-block row">
                     <div class="col-sm-12 col-lg-12 col-xl-12">
-                        <div class="table-responsive">
+                        <div class="table-responsive-sm">
                             <table class="table table-border-vertical">
                                 <thead class="table-danger">
                                 <tr>
@@ -90,5 +90,7 @@
         </div>
     </div>
     <!-- Container-fluid Ends-->
+
+    <x-adm.modal.sure :title="'adm.remove_selected_item'"/>
 
 @endsection

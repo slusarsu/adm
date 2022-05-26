@@ -37,12 +37,32 @@ return [
     'no' => 'No',
     'created_at' => 'Created at',
     'email' => 'Email',
+    'enter_name' => 'Enter name',
+    'enter_password' => 'Enter password',
+    'password' => 'Password',
+    'all' => 'All',
+    'label' => 'Label',
 
     //menu
     'menu' => 'Menu',
+    'menus' => 'Menus',
     'create_menu' => 'Create menu',
     'edit_menu' => 'Edit menu',
     'delete_menu' => 'Remove menu',
+
+    //role
+    'role' => 'Role',
+    'roles' => 'Roles',
+    'create_role' => 'Create role',
+    'edit_role' => 'Edit role',
+    'delete_role' => 'Remove role',
+
+    //role
+    'permission' => 'Permission',
+    'permissions' => 'Permissions',
+    'create_permission' => 'Create permission',
+    'edit_permission' => 'Edit permission',
+    'delete_permission' => 'Remove permission',
 
     //languages
     'language' => 'Language',
@@ -72,7 +92,11 @@ return [
     'restored_successfully' => 'Restored successfully',
     'selected_items_to_trash' => 'Selected items to trash',
     'remove_selected_items' => 'Remove selected items',
+    'remove_selected_item' => 'Remove selected item',
     'restore_selected_items' => 'Restore selected items',
     'are_you_sure' => 'Are you sure?',
 
+    //admin menu
+    'users_system' => 'Users System',
+    'adm_system' => 'Adm system',
 ];

@@ -48,14 +48,14 @@ class CodeGenerator extends Command
     {
         $name = Str::ucfirst($this->argument('name'));
 
-        $this->comment('Creating model: '. $name);
-        Artisan::call('make:model '. $name . ' -m');
-
         $this->comment('Creating controller: '. $name . 'Controller');
         Artisan::call('make:controller Adm/'. $name . 'Controller');
 
         $this->comment('Creating : '. $name . 'Service');
         $this->createService($name);
+
+        $this->comment('Creating model: '. $name);
+        Artisan::call('make:model '. $name . ' -m');
 
         $this->call('optimize');
     }

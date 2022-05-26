@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Adm\PermissionController;
+use App\Http\Controllers\Adm\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Adm\MenuController;
 use App\Http\Controllers\Adm\UserController;
@@ -12,12 +14,17 @@ Route::get('', function () {
 
 Route::prefix('menu')->group(function () {
     Route::get('', [MenuController::class, 'index'])->name('adm.menu');
-    Route::get('trashed', [MenuController::class, 'trashed'])->name('adm.menu-trashed');
+    Route::get('trashed', [MenuController::class, 'trashed'])->name('adm.menu-trashed')->middleware('can:can-edit-page');
     Route::get('create', [MenuController::class, 'create'])->name('adm.menu-create');
     Route::post('store', [MenuController::class, 'store'])->name('adm.menu-store');
-    Route::get('edit/{id}', [MenuController::class, 'edit'])->name('adm.menu-edit');
     Route::post('update', [MenuController::class, 'update'])->name('adm.menu-update');
+    Route::get('edit/{id}', [MenuController::class, 'edit'])->name('adm.menu-edit');
+    Route::get('trash/{id}', [MenuController::class, 'trash'])->name('adm.menu-trash');
     Route::get('remove/{id}', [MenuController::class, 'remove'])->name('adm.menu-remove');
+    Route::get('restore/{id}', [MenuController::class, 'restore'])->name('adm.menu-restore');
+    Route::post('bulk-restore', [MenuController::class, 'bulkRestore'])->name('adm.menu-bulk-restore');
+    Route::post('bulk-trash', [MenuController::class, 'bulkTrash'])->name('adm.menu-bulk-trash');
+    Route::post('bulk-remove', [MenuController::class, 'bulkRemove'])->name('adm.menu-bulk-remove');
 });
 
 Route::prefix('language')->group(function () {
@@ -48,4 +55,34 @@ Route::prefix('user')->group(function () {
     Route::post('bulk-restore', [UserController::class, 'bulkRestore'])->name('adm.user-bulk-restore');
     Route::post('bulk-trash', [UserController::class, 'bulkTrash'])->name('adm.user-bulk-trash');
     Route::post('bulk-remove', [UserController::class, 'bulkRemove'])->name('adm.user-bulk-remove');
+});
+
+Route::prefix('role')->group(function () {
+    Route::get('', [RoleController::class, 'index'])->name('adm.role');
+    Route::get('trashed', [RoleController::class, 'trashed'])->name('adm.role-trashed');
+    Route::get('create', [RoleController::class, 'create'])->name('adm.role-create');
+    Route::post('store', [RoleController::class, 'store'])->name('adm.role-store');
+    Route::post('update', [RoleController::class, 'update'])->name('adm.role-update');
+    Route::get('edit/{id}', [RoleController::class, 'edit'])->name('adm.role-edit');
+    Route::get('trash/{id}', [RoleController::class, 'trash'])->name('adm.role-trash');
+    Route::get('remove/{id}', [RoleController::class, 'remove'])->name('adm.role-remove');
+    Route::get('restore/{id}', [RoleController::class, 'restore'])->name('adm.role-restore');
+    Route::post('bulk-restore', [RoleController::class, 'bulkRestore'])->name('adm.role-bulk-restore');
+    Route::post('bulk-trash', [RoleController::class, 'bulkTrash'])->name('adm.role-bulk-trash');
+    Route::post('bulk-remove', [RoleController::class, 'bulkRemove'])->name('adm.role-bulk-remove');
+});
+
+Route::prefix('permission')->group(function () {
+    Route::get('', [PermissionController::class, 'index'])->name('adm.permission');
+    Route::get('trashed', [PermissionController::class, 'trashed'])->name('adm.permission-trashed');
+    Route::get('create', [PermissionController::class, 'create'])->name('adm.permission-create');
+    Route::post('store', [PermissionController::class, 'store'])->name('adm.permission-store');
+    Route::post('update', [PermissionController::class, 'update'])->name('adm.permission-update');
+    Route::get('edit/{id}', [PermissionController::class, 'edit'])->name('adm.permission-edit');
+    Route::get('trash/{id}', [PermissionController::class, 'trash'])->name('adm.permission-trash');
+    Route::get('remove/{id}', [PermissionController::class, 'remove'])->name('adm.permission-remove');
+    Route::get('restore/{id}', [PermissionController::class, 'restore'])->name('adm.permission-restore');
+    Route::post('bulk-restore', [PermissionController::class, 'bulkRestore'])->name('adm.permission-bulk-restore');
+    Route::post('bulk-trash', [PermissionController::class, 'bulkTrash'])->name('adm.permission-bulk-trash');
+    Route::post('bulk-remove', [PermissionController::class, 'bulkRemove'])->name('adm.permission-bulk-remove');
 });

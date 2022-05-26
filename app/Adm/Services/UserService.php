@@ -3,7 +3,9 @@
 namespace App\Adm\Services; 
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
@@ -22,6 +24,8 @@ class UserService
      */
     public function store($data): mixed
     {
+        $data['password'] = Hash::make($data['password']);
+        unset($data['roles']);
         return $this->baseModel::create($data);
     }
 
@@ -31,6 +35,12 @@ class UserService
      */
     public function update($data): mixed
     {
+        if(!empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            unset($data['password']);
+            unset($data['roles']);
+        }
         return $this->baseModel::where('id', $data['id'])->update($data);
     }
 
@@ -131,5 +141,24 @@ class UserService
         }
 
         return $query->orderBy($filter, $order)->paginate($paginate);
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAll(): Collection
+    {
+        return $this->baseModel::all();
+    }
+
+    /**
+     * @param $id
+     * @param $roles
+     * @return void
+     */
+    public function updateRoles($id, $roles): void
+    {
+        $user = $this->baseModel::find($id);
+        $user->roles()->sync($roles);
     }
 }

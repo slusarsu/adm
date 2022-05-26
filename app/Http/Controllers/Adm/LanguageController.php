@@ -16,9 +16,9 @@ class LanguageController extends Controller
 {
     private LanguageService $baseService;
 
-    public function __construct(LanguageService $languageService)
+    public function __construct(LanguageService $baseService)
     {
-        $this->baseService = $languageService;
+        $this->baseService = $baseService;
     }
 
     /**
@@ -87,24 +87,43 @@ class LanguageController extends Controller
         return back()->with('success', trans('adm.updated_successfully'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
+     */
     public function trash(Request $request, $id): RedirectResponse
     {
         $this->baseService->toTrash([$id]);
         return back()->with('success', trans('adm.trashed_success'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
+     */
     public function remove(Request $request, $id): RedirectResponse
     {
         $this->baseService->remove([$id]);
         return back()->with('success', trans('adm.removed_successfully'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
+     */
     public function restore(Request $request, $id): RedirectResponse
     {
         $this->baseService->restoreTrashed([$id]);
         return back()->with('success', trans('adm.restored_successfully'));
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function bulkTrash(Request $request): RedirectResponse
     {
         $ids = explode(',', $request->get('ids'));
@@ -112,6 +131,10 @@ class LanguageController extends Controller
         return back()->with('success', trans('adm.trashed_success'));
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function bulkRemove(Request $request): RedirectResponse
     {
         $ids = explode(',', $request->get('ids'));
@@ -119,6 +142,10 @@ class LanguageController extends Controller
         return back()->with('success', trans('adm.removed_successfully'));
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function bulkRestore(Request $request): RedirectResponse
     {
         $ids = explode(',', $request->get('ids'));

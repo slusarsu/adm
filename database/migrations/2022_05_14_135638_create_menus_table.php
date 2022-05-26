@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('lang')->nullable();
             $table->boolean('enabled')->default(true);
+            $table->string('type')->nullable();
             $table->json('items')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

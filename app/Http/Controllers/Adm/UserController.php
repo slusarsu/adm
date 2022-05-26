@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Adm;
 
+use App\Adm\Services\RoleService;
 use Illuminate\Http\Request;
 use App\Adm\Services\UserService;
 use Illuminate\Contracts\View\View;
@@ -9,16 +10,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\Foundation\Application;
-use App\Http\Requests\Adm\Language\CreateRequest;
-use App\Http\Requests\Adm\Language\UpdateRequest;
+use App\Http\Requests\Adm\User\CreateRequest;
+use App\Http\Requests\Adm\User\UpdateRequest;
 
 class UserController extends Controller
 {
     private UserService $baseService;
 
-    public function __construct(UserService $userService)
+    private RoleService $roleService;
+
+    public function __construct(UserService $baseService, RoleService $roleService)
     {
-        $this->baseService = $userService;
+        $this->baseService = $baseService;
+        $this->roleService = $roleService;
     }
 
     /**
@@ -49,7 +53,8 @@ class UserController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        return view('adm.user.create');
+        $roles = $this->roleService->getAllForSelectForm();
+        return view('adm.user.create', compact('roles'));
     }
 
     /**
@@ -62,6 +67,10 @@ class UserController extends Controller
 
         $item = $this->baseService->store($requestData);
 
+        $roles = $requestData['roles'] ?? [];
+
+        $this->baseService->updateRoles($item->id, $roles);
+
         return redirect()->route('adm.user-edit', $item->id)->with('success', trans('adm.created_successfully'));
     }
 
@@ -73,7 +82,12 @@ class UserController extends Controller
     public function edit(Request $request, $id): Factory|View|Application
     {
         $item = $this->baseService->getById($id);
-        return view('adm.user.edit', compact('item'));
+
+        $roles = $this->roleService->getAllForSelectForm();
+
+        $roleSelected = $item->roles->pluck('id')->toArray();
+
+        return view('adm.user.edit', compact('item', 'roles', 'roleSelected'));
     }
 
     /**
@@ -83,7 +97,13 @@ class UserController extends Controller
     public function update(UpdateRequest $request): RedirectResponse
     {
         $requestData = $request->validated();
+
         $this->baseService->update($requestData);
+
+        $roles = $requestData['roles'] ?? [];
+
+        $this->baseService->updateRoles($requestData['id'], $roles);
+
         return back()->with('success', trans('adm.updated_successfully'));
     }
 

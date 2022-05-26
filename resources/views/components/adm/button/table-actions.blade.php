@@ -35,7 +35,7 @@
 
         @if($removeUrl)
             <li>
-                <a class="dropdown-item text-danger" href="{{$removeUrl}}">
+                <a class="dropdown-item text-danger sure-btn" href="{{$removeUrl}}" data-bs-toggle="modal" data-bs-target="#sureModal">
                     <i class="fa fa-times-circle"></i>
                     {{__('adm.remove')}}
                 </a>

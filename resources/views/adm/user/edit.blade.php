@@ -3,16 +3,16 @@
 @section('content')
     <x-adm.breadcrumb>
         <x-slot name="breadcrumb_title">
-            {{__('adm.edit_language')}}
+            {{__('adm.edit_user')}}
         </x-slot>
         <li class="breadcrumb-item">
-            <a href="{{route('adm.language')}}">{{__('adm.languages')}}</a>
+            <a href="{{route('adm.user')}}">{{__('adm.users')}}</a>
         </li>
-        <li class="breadcrumb-item">{{__('adm.edit_language')}}</li>
+        <li class="breadcrumb-item">{{__('adm.edit_user')}}</li>
     </x-adm.breadcrumb>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
-        <form method="post" action="{{route('adm.language-update')}}">
+        <form method="post" action="{{route('adm.user-update')}}">
             @csrf
             <div class="card">
 
@@ -22,36 +22,38 @@
 
                     <div class="mb-3">
                         <label class="col-form-label pt-0" for="name">{{__('adm.name')}}*</label>
-                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_language_name')}}" required value="{{$item->name}}">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_name')}}" required value="{{$item->name}}">
                     </div>
 
                     <div class="mb-3">
-                        <label class="col-form-label pt-0" for="native-name">{{__('adm.native_name')}}</label>
-                        <input class="form-control" id="native-name" name="native_name" type="text" placeholder="{{__('adm.native_name')}}" value="{{$item->native_name}}">
+                        <label class="col-form-label pt-0" for="native-name">{{__('adm.email')}}*</label>
+                        <input class="form-control" id="native-name" name="email" type="text" placeholder="{{__('adm.email')}}" value="{{$item->email}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <x-adm.form.select2-multiple
+                                :label="'adm.roles'"
+                                :name="'roles'"
+                                :id="'user-roles'"
+                                :required="false"
+                                :data="$roles"
+                                :value="$roleSelected"
+                        />
                     </div>
 
                     <div class="row">
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
-                                <label class="col-form-label pt-0" for="code">{{__('adm.code')}}*</label>
-                                <input class="form-control" id="code" name="code" type="text" placeholder="{{__('adm.enter_language_code')}}" required value="{{$item->code}}">
-                            </div>
-                        </div>
-                        <div class="cl-sm-12 col-md-4">
-                            <div class="mb-3">
-                                <label class="col-form-label pt-0" for="direction">{{ __('adm.direction') }}</label>
-                                <select class="form-select digits" id="direction" name="direction" required>
-                                    <option value="ltr" @if($item->direction == 'ltr') selected @endif>ltr</option>
-                                    <option value="rtl" @if($item->direction == 'rtl') selected @endif>rtl</option>
-                                </select>
+                                <label class="col-form-label pt-0" for="code">{{__('adm.password')}}</label>
+                                <input class="form-control" id="code" name="password" type="password" placeholder="{{__('adm.enter_password')}}">
                             </div>
                         </div>
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="enabled">{{__('adm.enabled')}}</label>
-                                <select class="form-select" id="enabled" name="enabled" required>
-                                    <option value="1" @if($item->enabled == 1) selected @endif>{{__('adm.enabled')}}</option>
-                                    <option value="0" @if($item->enabled == 0) selected @endif>{{__('adm.disabled')}}</option>
+                                <select class="form-select" id="enabled" name="enabled" >
+{{--                                    <option value="1" @if($item->enabled == 1) selected @endif>{{__('adm.enabled')}}</option>--}}
+{{--                                    <option value="0" @if($item->enabled == 0) selected @endif>{{__('adm.disabled')}}</option>--}}
                                 </select>
                             </div>
                         </div>
@@ -61,7 +63,7 @@
 
                 <div class="card-footer">
                     <button class="btn btn-primary" type="submit">{{__('adm.submit')}}</button>
-                    <a href="{{route('adm.language')}}" class="btn btn-secondary">{{__('adm.cancel')}}</a>
+                    <a href="{{route('adm.user')}}" class="btn btn-secondary">{{__('adm.cancel')}}</a>
                 </div>
 
             </div>
