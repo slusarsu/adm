@@ -7,9 +7,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/flag-icon.css')}}">
 <!-- Feather icon-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/feather-icon.css')}}">
+
 <!-- Plugins css start-->
 @stack('css')
 <!-- Plugins css Ends-->
+
+<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/select2.css') }}">
+
 <!-- Bootstrap css-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
 <!-- App css-->

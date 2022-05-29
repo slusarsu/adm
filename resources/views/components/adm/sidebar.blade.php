@@ -2,7 +2,7 @@
 
     <div class="sidebar-user text-center">
 
-        <a class="setting-primary" href="javascript:void(0)">
+        <a class="setting-primary" href="{{route('adm.profile-settings', $user->id)}}">
             <i data-feather="settings"></i>
         </a>
 
@@ -12,25 +12,13 @@
             <span class="badge badge-primary">New</span>
         </div>
 
-        <a href="user-profile.html">
+        <a href="{{route('adm.profile', $user->id)}}">
             <h6 class="mt-3 f-14 f-w-600">{{$user->name}}</h6>
         </a>
 
         <p class="mb-0 font-roboto">
             {{$roleLabels}}
         </p>
-
-        <ul>
-            <li><span><span class="counter">19.8</span>k</span>
-                <p>Follow</p>
-            </li>
-            <li><span>2 year</span>
-                <p>Experince</p>
-            </li>
-            <li><span><span class="counter">95.2</span>k</span>
-                <p>Follower </p>
-            </li>
-        </ul>
 
     </div>
     <nav>

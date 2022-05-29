@@ -30,12 +30,7 @@ class Sidebar extends Component
         $this->user = auth()->user();
         $this->menu = $menuConfig;
         $this->adminMenu = $this->menu->getAdminMenu();
-        $this->roleLabels = $this->roleLabels();
-    }
-
-    public function roleLabels(): string
-    {
-        return implode(', ', $this->user->getRoleLabels()->toArray());
+        $this->roleLabels = $this->user->getRoleLabelsString();
     }
 
     /**

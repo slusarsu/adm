@@ -84,6 +84,26 @@ return [
     'enter_user_name' => 'Enter user name',
     'enter_user_code' => 'Enter language code',
 
+    //profile
+    'profile' => 'Profile',
+    'edit_profile' => 'Edit profile',
+    'delete_profile' => 'Remove profile',
+    'first_name' => 'First name',
+    'last_name' => 'Last name',
+    'middle_name' => 'Middle name',
+    'website' => 'Web site',
+    'country' => 'Country',
+    'city' => 'City',
+    'postal_code' => 'Postal code',
+    'address' => 'Address',
+    'birth_day' => 'Birth Day',
+    'description' => 'Description',
+    'social_links' => 'Social links',
+    'user_information' => 'User information',
+    'address_information' => 'Address information',
+    'social_information' => 'Social information',
+    'profile_settings' => 'Profile settings',
+
     //alert messages
     'created_successfully' => 'Created successfully',
     'updated_successfully' => 'Updated successfully',

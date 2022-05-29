@@ -33,7 +33,9 @@
 .page-link {
     color: #24695c;
 }
-
+.profile-header {
+    background-color: rgba(36, 105, 92, 0.2);
+}
 /*.table-responsive {*/
 /*    min-height: 200px;*/
 /*}*/

@@ -63,7 +63,9 @@
                                                 <x-adm.table.checkbox-item :id="$item->id"/>
                                             </th>
                                             <td>{{$item->id}}</td>
-                                            <td>{{$item->name}}</td>
+                                            <td>
+                                                <a href="{{route('adm.profile', $item->id)}}">{{$item->name}}</a>
+                                            </td>
                                             <td>{{$item->email}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td class="text-end">

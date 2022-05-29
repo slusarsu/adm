@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Adm\PermissionController;
-use App\Http\Controllers\Adm\RoleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Adm\RoleController;
 use App\Http\Controllers\Adm\MenuController;
 use App\Http\Controllers\Adm\UserController;
+use App\Http\Controllers\Adm\ProfileController;
 use App\Http\Controllers\Adm\LanguageController;
+use App\Http\Controllers\Adm\PermissionController;
 
 Route::get('', function () {
     return view('adm.main');
@@ -85,4 +86,14 @@ Route::prefix('permission')->group(function () {
     Route::post('bulk-restore', [PermissionController::class, 'bulkRestore'])->name('adm.permission-bulk-restore');
     Route::post('bulk-trash', [PermissionController::class, 'bulkTrash'])->name('adm.permission-bulk-trash');
     Route::post('bulk-remove', [PermissionController::class, 'bulkRemove'])->name('adm.permission-bulk-remove');
+});
+
+Route::prefix('profile')->group(function () {
+    Route::get('{id}', [ProfileController::class, 'index'])->name('adm.profile');
+    Route::get('{id}/edit', [ProfileController::class, 'edit'])->name('adm.profile-edit');
+    Route::post('create', [ProfileController::class, 'create'])->name('adm.profile-create');
+    Route::post('update', [ProfileController::class, 'update'])->name('adm.profile-update');
+    Route::post('remove', [ProfileController::class, 'remove'])->name('adm.profile-remove');
+    Route::get('{id}/settings', [ProfileController::class, 'settings'])->name('adm.profile-settings');
+    Route::post('update-settings', [ProfileController::class, 'updateSettings'])->name('adm.profile-update-settings');
 });

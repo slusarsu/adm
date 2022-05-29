@@ -12,6 +12,15 @@
 @stack('scripts')
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
+
+<script src="{{ asset('/assets/js/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('/assets/js/select2/select2-custom.js') }}"></script>
+
+<script src="{{asset('assets/js/editor/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
+<script src="{{asset('assets/js/editor/ckeditor/styles.js')}}"></script>
+<script src="{{asset('assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
+
 <script src="{{asset('assets/js/script.js')}}"></script>
 <script src="{{asset('assets/js/theme-customizer/customizer.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
