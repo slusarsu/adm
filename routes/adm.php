@@ -96,6 +96,4 @@ Route::prefix('profile')->group(function () {
     Route::post('create', [ProfileController::class, 'create'])->name('adm.profile-create');
     Route::post('update', [ProfileController::class, 'update'])->name('adm.profile-update');
     Route::post('remove', [ProfileController::class, 'remove'])->name('adm.profile-remove');
-    Route::get('{id}/settings', [ProfileController::class, 'settings'])->name('adm.profile-settings');
-    Route::post('update-settings', [ProfileController::class, 'updateSettings'])->name('adm.profile-update-settings');
 });

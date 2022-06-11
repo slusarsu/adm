@@ -1,9 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Facade;
-
 return [
-
-
-
+    'route_prefix' => 'adm'
 ];
