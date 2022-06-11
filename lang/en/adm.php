@@ -44,6 +44,7 @@ return [
     'label' => 'Label',
     'select_file' => 'Select file',
     'file_manager' => 'File manager',
+    'visit_site' => 'Visit site',
 
     //menu
     'menu' => 'Menu',
@@ -105,6 +106,7 @@ return [
     'address_information' => 'Address information',
     'social_information' => 'Social information',
     'profile_settings' => 'Profile settings',
+    'dark_mode' => 'Dark Mode',
 
     //alert messages
     'created_successfully' => 'Created successfully',

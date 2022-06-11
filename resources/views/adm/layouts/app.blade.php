@@ -11,8 +11,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="{{asset('/assets/images/favicon.png')}}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{asset('/assets/images/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('adm/assets/images/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('adm/assets/images/favicon.png')}}" type="image/x-icon">
 
 
     <title>@yield('title')</title>
@@ -23,7 +23,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
     @includeIf('adm.partials.css')
 </head>
-<body>
+
+<body @class(['dark-only' => auth()->user()->profile->settings['dark_mode']]) >
     <!-- Loader starts-->
     <div class="loader-wrapper">
         <div class="theme-loader">

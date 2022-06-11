@@ -66,6 +66,12 @@
                                         {{__('adm.social_information')}}
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="settings-tab" data-bs-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">
+                                        <i class="icofont icofont-settings"></i>
+                                        {{__('adm.profile_settings')}}
+                                    </a>
+                                </li>
                             </ul>
                             <div class="tab-content" id="info-tabContent">
 
@@ -167,6 +173,34 @@
                                                 <label class="col-form-label pt-0" for="linkedin">LinkedIn</label>
                                                 <input class="form-control" id="linkedin" name="linkedin" type="text" placeholder="linkedin" value="{{$item->linkedin}}">
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="contact-info-tab">
+                                    <div class="row">
+                                        <div class="cl-sm-12 col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="dark-mode">{{__('adm.dark_mode')}}</label>
+                                                <select class="form-select digits" id="dark-mode" name="settings[dark_mode]">
+                                                    <option value="0" @if($item->settings['dark_mode'] == 0) selected @endif>
+                                                        {{__('adm.disabled')}}
+                                                    </option>
+                                                    <option value="1" @if($item->settings['dark_mode'] == 1) selected @endif>
+                                                        {{__('adm.enabled')}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="cl-sm-12">
+
+{{--                                            <div class="private-color color-one" data-primary="#24695c" data-secondary="#ba895d"></div>--}}
+{{--                                            <div class="private-color color-two" data-primary="#d97f3d" data-secondary="#f25f4c"></div>--}}
+{{--                                            <div class="private-color color-three" data-primary="#168eea" data-secondary="#90b4cd"></div>--}}
+{{--                                            <div class="private-color color-fore" data-primary="#d1d1e9" data-secondary="#665ed5"></div>--}}
+{{--                                            <div class="private-color color-five" data-primary="#3a9aa8" data-secondary="#984ff3"></div>--}}
+{{--                                            <div class="private-color color-six" data-primary="#7951aa" data-secondary="#72757D"></div>--}}
+
                                         </div>
                                     </div>
                                 </div>

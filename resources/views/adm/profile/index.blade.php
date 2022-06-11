@@ -15,16 +15,16 @@
                 <div class="col-sm-12">
                     <div class="card profile-header">
 
-                        <img class="img-fluid bg-img-cover" src="{{asset('/assets/images/user-profile/bg-profile.jpg')}}" alt="">
+                        <img class="img-fluid bg-img-cover" src="{{asset('adm/assets/images/user-profile/bg-profile.jpg')}}" alt="">
 
                         <div class="profile-img-wrrap">
-                            <img class="img-fluid bg-img-cover" src="{{asset('/assets/images/user-profile/bg-profile.jpg')}}" alt="">
+                            <img class="img-fluid bg-img-cover" src="{{asset('adm/assets/images/user-profile/bg-profile.jpg')}}" alt="">
                         </div>
 
                         <div class="userpro-box">
 
                             <div class="img-wrraper">
-                                <div class="avatar"><img class="img-fluid" alt="" src="{{asset('/assets/images/user/7.jpg')}}">
+                                <div class="avatar"><img class="img-fluid" alt="" src="{{asset('adm/assets/images/user/7.jpg')}}">
                                 </div><a class="icon-wrapper" href="{{route('adm.profile-edit', $profile->user->id)}}">
                                     <i class="icofont icofont-pencil-alt-5"></i>
                                 </a>

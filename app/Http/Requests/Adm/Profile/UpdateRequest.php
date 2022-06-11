@@ -36,7 +36,7 @@ class UpdateRequest extends FormRequest
             'postal_code' => 'nullable|string',
             'address' => 'nullable|string',
             'birth_day' => 'nullable|date',
-            'settings' => 'nullable|string',
+            'settings' => 'nullable|array',
             'description' => 'nullable|string',
         ];
     }

@@ -77,4 +77,15 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function getSettings()
+    {
+        $profile = $this->profile()->first();
+        dd($profile);
+        if(!empty($profile->settings)) {
+            return json_decode($profile->settings, 1);
+        }
+
+        return null;
+    }
 }

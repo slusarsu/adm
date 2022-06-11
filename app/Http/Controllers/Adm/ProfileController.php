@@ -62,7 +62,6 @@ class ProfileController extends Controller
      */
     public function settings(Request $request, $id): Factory|View|Application
     {
-
         $item = $this->baseService->getProfileByUserId($id);
 
         return view('adm.profile.settings', compact('item'));

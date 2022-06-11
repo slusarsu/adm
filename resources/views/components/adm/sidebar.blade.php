@@ -2,11 +2,11 @@
 
     <div class="sidebar-user text-center">
 
-        <a class="setting-primary" href="{{route('adm.profile-settings', $user->id)}}">
+        <a class="setting-primary" href="{{route('adm.profile-edit', $user->id)}}">
             <i data-feather="settings"></i>
         </a>
 
-        <img class="img-90 rounded-circle" src="{{asset('/assets/images/dashboard/1.png')}}" alt="">
+        <img class="img-90 rounded-circle" src="{{asset('adm/assets/images/dashboard/1.png')}}" alt="">
 
         <div class="badge-bottom">
             <span class="badge badge-primary">New</span>
