@@ -61,6 +61,13 @@ class MenuConfig
                         'icon' => '<i class="fa fa-list-ul"></i>',
                         'url' => route('adm.menu')
                     ],
+                    [
+                        'item_id' => 'menus',
+                        'type' => 'link',
+                        'title' => trans('adm.file_manager'),
+                        'icon' => '<i class="fa fa-folder"></i>',
+                        'url' => route('adm.file-manager')
+                    ],
                 ],
 
             ]

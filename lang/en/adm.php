@@ -42,6 +42,8 @@ return [
     'password' => 'Password',
     'all' => 'All',
     'label' => 'Label',
+    'select_file' => 'Select file',
+    'file_manager' => 'File manager',
 
     //menu
     'menu' => 'Menu',

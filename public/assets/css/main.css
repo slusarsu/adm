@@ -36,6 +36,43 @@
 .profile-header {
     background-color: rgba(36, 105, 92, 0.2);
 }
+
+.private-color {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 7px;
+    margin-right: 3px;
+    border: 3px solid #e1e4eb;
+    padding: 3px;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.color-one {
+    background-color: #24695c;
+}
+
+.color-two {
+    background-color: #d97f3d;
+}
+
+.color-three {
+    background-color: #168eea;
+}
+
+.color-fore {
+    background-color: #665ed5;
+}
+
+.color-five {
+    background-color: #3a9aa8;
+}
+
+.color-six {
+    background-color: #7951aa;
+}
 /*.table-responsive {*/
 /*    min-height: 200px;*/
 /*}*/

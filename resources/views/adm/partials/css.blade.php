@@ -14,6 +14,8 @@
 
 <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/select2.css') }}">
 
+<link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/colorbox.css') }}">
+
 <!-- Bootstrap css-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.css')}}">
 <!-- App css-->

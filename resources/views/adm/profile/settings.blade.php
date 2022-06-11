@@ -19,7 +19,18 @@
                         <h5>Sample Card</h5><span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                     </div>
                     <div class="card-body">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <div class="private-color color-one" data-primary="#24695c" data-secondary="#ba895d"></div>
+                        <div class="private-color color-two" data-primary="#d97f3d" data-secondary="#f25f4c"></div>
+                        <div class="private-color color-three" data-primary="#168eea" data-secondary="#90b4cd"></div>
+                        <div class="private-color color-fore" data-primary="#d1d1e9" data-secondary="#665ed5"></div>
+                        <div class="private-color color-five" data-primary="#3a9aa8" data-secondary="#984ff3"></div>
+                        <div class="private-color color-six" data-primary="#7951aa" data-secondary="#72757D"></div>
+
+                        <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+                        <label class="btn private-color color-one" for="option1"></label>
+
+                        <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                        <label class="btn private-color color-two" for="option2"></label>
                     </div>
                 </div>
             </div>

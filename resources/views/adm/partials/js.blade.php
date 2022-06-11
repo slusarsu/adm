@@ -15,6 +15,8 @@
 
 <script src="{{ asset('/assets/js/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('/assets/js/select2/select2-custom.js') }}"></script>
+<script src="{{ asset('/assets/js/jquery.colorbox-min.js') }}"></script>
+<script src="{{ asset('/packages/barryvdh/elfinder/js/standalonepopup.js') }}"></script>
 
 <script src="{{asset('assets/js/editor/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>

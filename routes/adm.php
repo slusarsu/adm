@@ -12,6 +12,8 @@ Route::get('', function () {
     return view('adm.main');
 })->name('adm');
 
+Route::view('file-manager', 'adm.file-manager')->name('adm.file-manager');
+
 
 Route::prefix('menu')->group(function () {
     Route::get('', [MenuController::class, 'index'])->name('adm.menu');

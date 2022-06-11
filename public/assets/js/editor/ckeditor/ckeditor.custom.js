@@ -1,5 +1,5 @@
 // Default ckeditor
-CKEDITOR.replaceClass ( 'ckeditor', {
+CKEDITOR.replace( 'ckeditor', {
     on: {
         contentDom: function( evt ) {
             // Allow custom context menu only with table elemnts.
