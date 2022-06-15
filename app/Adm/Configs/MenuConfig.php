@@ -22,6 +22,30 @@ class MenuConfig
     private function adminMenuStructure(): array
     {
         return [
+
+            [
+                'section' => trans('adm.content_system'),
+                'section_id' => 'content_system',
+
+                'items' => [
+                    [
+                        'item_id' => 'file_manager',
+                        'type' => 'link',
+                        'title' => trans('adm.file_manager'),
+                        'icon' => '<i class="fa fa-folder"></i>',
+                        'url' => route('adm.file-manager')
+                    ],
+                    [
+                        'item_id' => 'content_types',
+                        'type' => 'link',
+                        'title' => trans('adm.content_types'),
+                        'icon' => '<i class="fa fa-hdd-o"></i>',
+                        'url' => route('adm.content-type')
+                    ],
+                ],
+
+            ],
+
             [
                 'section' => trans('adm.adm_system'),
                 'section_id' => 'adm_system',
@@ -55,22 +79,24 @@ class MenuConfig
                         'url' => route('adm.language')
                     ],
                     [
+                        'item_id' => 'settings',
+                        'type' => 'link',
+                        'title' => trans('adm.settings'),
+                        'icon' => '<i class="fa fa-sliders"></i>',
+                        'url' => route('adm.settings')
+                    ],
+                    [
                         'item_id' => 'menus',
                         'type' => 'link',
                         'title' => trans('adm.menus'),
                         'icon' => '<i class="fa fa-list-ul"></i>',
                         'url' => route('adm.menu')
                     ],
-                    [
-                        'item_id' => 'menus',
-                        'type' => 'link',
-                        'title' => trans('adm.file_manager'),
-                        'icon' => '<i class="fa fa-folder"></i>',
-                        'url' => route('adm.file-manager')
-                    ],
+
                 ],
 
-            ]
+            ],
+
         ];
     }
 }

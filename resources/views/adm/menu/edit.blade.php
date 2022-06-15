@@ -24,13 +24,13 @@
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="name">{{__('adm.name')}}*</label>
-                                <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_name')}}" required value="{{old('name')}}">
+                                <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_name')}}" required value="{{$item->name}}">
                             </div>
                         </div>
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="language">{{__('adm.menu')}}</label>
-                                <select class="form-select digits" id="language" name="language" required >
+                                <select class="form-select digits" id="language" name="lang" required >
                                     <option value="all">{{__('adm.all')}}</option>
                                     @foreach($languages as $language)
                                         <option value="{{$language->code}}" @if($item->lang == $language->code) selected @endif>{{$language->name}}</option>

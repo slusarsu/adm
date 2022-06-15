@@ -29,7 +29,7 @@
                         <div class="cl-sm-12 col-md-4">
                             <div class="mb-3">
                                 <label class="col-form-label pt-0" for="language">{{__('adm.language')}}</label>
-                                <select class="form-select digits" id="language" name="language" required >
+                                <select class="form-select digits" id="language" name="lang" required >
                                     <option value="all">{{__('adm.all')}}</option>
                                     @foreach($languages as $language)
                                         <option value="{{$language->code}}">{{$language->name}}</option>

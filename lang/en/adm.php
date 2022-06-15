@@ -45,6 +45,9 @@ return [
     'select_file' => 'Select file',
     'file_manager' => 'File manager',
     'visit_site' => 'Visit site',
+    'settings' => 'Settings',
+    'content_system' => 'Content System',
+    'content_types' => 'Content Types',
 
     //menu
     'menu' => 'Menu',

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Adm\AdmSettingsController;
+use App\Http\Controllers\Adm\ContentTypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Adm\RoleController;
 use App\Http\Controllers\Adm\MenuController;
@@ -96,4 +98,24 @@ Route::prefix('profile')->group(function () {
     Route::post('create', [ProfileController::class, 'create'])->name('adm.profile-create');
     Route::post('update', [ProfileController::class, 'update'])->name('adm.profile-update');
     Route::post('remove', [ProfileController::class, 'remove'])->name('adm.profile-remove');
+});
+
+Route::prefix('settings')->group(function () {
+    Route::get('', [AdmSettingsController::class, 'index'])->name('adm.settings');
+    Route::post('update', [AdmSettingsController::class, 'update'])->name('adm.settings-update');
+});
+
+Route::prefix('content-type')->group(function () {
+    Route::get('', [ContentTypeController::class, 'index'])->name('adm.content-type');
+    Route::get('trashed', [ContentTypeController::class, 'trashed'])->name('adm.content-type-trashed');
+    Route::get('create', [ContentTypeController::class, 'create'])->name('adm.content-type-create');
+    Route::post('store', [ContentTypeController::class, 'store'])->name('adm.content-type-store');
+    Route::post('update', [ContentTypeController::class, 'update'])->name('adm.content-type-update');
+    Route::get('edit/{id}', [ContentTypeController::class, 'edit'])->name('adm.content-type-edit');
+    Route::get('trash/{id}', [ContentTypeController::class, 'trash'])->name('adm.content-type-trash');
+    Route::get('remove/{id}', [ContentTypeController::class, 'remove'])->name('adm.content-type-remove');
+    Route::get('restore/{id}', [ContentTypeController::class, 'restore'])->name('adm.content-type-restore');
+    Route::post('bulk-restore', [ContentTypeController::class, 'bulkRestore'])->name('adm.content-type-bulk-restore');
+    Route::post('bulk-trash', [ContentTypeController::class, 'bulkTrash'])->name('adm.content-type-bulk-trash');
+    Route::post('bulk-remove', [ContentTypeController::class, 'bulkRemove'])->name('adm.content-type-bulk-remove');
 });

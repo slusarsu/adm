@@ -24,8 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:menus,name',
-            'language' => 'required|string',
+            'id' => 'required|numeric',
+            'name' => 'required|string',
+            'lang' => 'required|string',
             'enabled' => 'required|boolean'
         ];
     }

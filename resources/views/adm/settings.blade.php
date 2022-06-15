@@ -3,12 +3,12 @@
 @section('content')
     <x-adm.breadcrumb>
         <x-slot name="breadcrumb_title">
-            {{__('adm.profile_settings')}}
+            {{__('adm.settings')}}
         </x-slot>
         <li class="breadcrumb-item">
-            <a href="{{route('adm.profile', $item->user->id)}}">{{__('adm.profile')}}</a>
+            <a href="{{route('adm')}}">{{__('adm.dashboard')}}</a>
         </li>
-        <li class="breadcrumb-item">{{__('adm.profile_settings')}}</li>
+        <li class="breadcrumb-item">{{__('adm.settings')}}</li>
     </x-adm.breadcrumb>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
