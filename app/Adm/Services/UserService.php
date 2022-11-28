@@ -3,14 +3,15 @@
 namespace App\Adm\Services; 
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Builder;
+use App\Adm\Traits\AdmBaseServiceTrait;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class UserService
 {
+    use AdmBaseServiceTrait;
+
     private User $baseModel;
 
     public function __construct(User $baseModel)
@@ -45,79 +46,6 @@ class UserService
     }
 
     /**
-     * @param $data
-     * @return mixed
-     */
-    public function getById($data): mixed
-    {
-        return $this->baseModel::where('id', $data)->first();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function trashedCount(): mixed
-    {
-        return $this->baseQuery()->onlyTrashed()->count();
-    }
-
-    /**
-     * @param $ids
-     * @return mixed
-     */
-    public function toTrash($ids): mixed
-    {
-        return $this->baseModel::whereIn('id',$ids)->delete();
-    }
-
-    /**
-     * @param $ids
-     * @return mixed
-     */
-    public function restoreTrashed($ids): mixed
-    {
-        return $this->baseModel::whereIn('id', $ids)->restore();
-    }
-
-    /**
-     * @param $ids
-     * @return mixed
-     */
-    public function remove($ids): mixed
-    {
-        return $this->baseModel::withTrashed()->whereIn('id', $ids)->forceDelete();
-    }
-
-    /**
-     * @return Builder
-     */
-    public function baseQuery(): Builder
-    {
-        return $this->baseModel::query();
-    }
-
-    /**
-     * @param $query
-     * @param $search
-     * @param array $props
-     * @return mixed
-     */
-    public function search($query, $search, array $props = []): mixed
-    {
-        $query =  $query->where('name', 'LIKE','%'.$search.'%');
-
-        if(!$props) {
-            return $query;
-        }
-
-        foreach ($props as $prop) {
-            $query =  $query->orWhere($prop, 'LIKE','%'.$search.'%');
-        }
-
-        return $query;
-    }
-
-    /**
      * @param Request $request
      * @param int $paginate
      * @param bool $trashed
@@ -141,14 +69,6 @@ class UserService
         }
 
         return $query->orderBy($filter, $order)->paginate($paginate);
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getAll(): Collection
-    {
-        return $this->baseModel::all();
     }
 
     /**

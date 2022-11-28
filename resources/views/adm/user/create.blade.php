@@ -19,14 +19,27 @@
 
                 <div class="card-body">
 
-                    <div class="mb-3">
-                        <label class="col-form-label pt-0" for="name">{{__('adm.name')}}*</label>
-                        <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_name')}}" required value="{{old('name')}}">
-                    </div>
+                    <div class="row">
+                        <div class="cl-sm-12 col-md-4">
+                            <div class="mb-3">
+                                <label class="col-form-label pt-0" for="name">{{__('adm.name')}}*</label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="{{__('adm.enter_name')}}" required value="{{old('name')}}">
+                            </div>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="col-form-label pt-0" for="email">{{__('adm.email')}}*</label>
-                        <input class="form-control" id="email" name="email" type="text" placeholder="{{__('adm.email')}}" value="{{old('email')}}">
+                        <div class="cl-sm-12 col-md-4">
+                            <div class="mb-3">
+                                <label class="col-form-label pt-0" for="email">{{__('adm.email')}}*</label>
+                                <input class="form-control" id="email" name="email" type="text" placeholder="{{__('adm.email')}}" value="{{old('email')}}">
+                            </div>
+                        </div>
+
+                        <div class="cl-sm-12 col-md-4">
+                            <div class="mb-3">
+                                <label class="col-form-label pt-0" for="code">{{__('adm.password')}}*</label>
+                                <input class="form-control" id="code" name="password" type="text" placeholder="{{__('adm.enter_password')}}" required>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -37,24 +50,6 @@
                                 :required="false"
                                 :data="$roles"
                         />
-                    </div>
-
-                    <div class="row">
-                        <div class="cl-sm-12 col-md-4">
-                            <div class="mb-3">
-                                <label class="col-form-label pt-0" for="code">{{__('adm.password')}}*</label>
-                                <input class="form-control" id="code" name="password" type="text" placeholder="{{__('adm.enter_password')}}" required>
-                            </div>
-                        </div>
-                        <div class="cl-sm-12 col-md-4">
-                            <div class="mb-3">
-                                <label class="col-form-label pt-0" for="enabled">{{__('adm.enabled')}}</label>
-                                <select class="form-select" id="enabled" name="enabled" required>
-                                    <option value="1">{{__('adm.enabled')}}</option>
-                                    <option value="0">{{__('adm.disabled')}}</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
 
                 </div>

@@ -3,6 +3,7 @@
 namespace App\View\Components\Adm;
 
 use App\Adm\Configs\MenuConfig;
+use App\Models\ContentType;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;

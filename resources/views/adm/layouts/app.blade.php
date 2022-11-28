@@ -24,7 +24,7 @@
     @includeIf('adm.partials.css')
 </head>
 
-<body @class(['dark-only' => auth()->user()->profile->settings['dark_mode']]) >
+<body @class(['dark-only' => auth()->user()->profile->settings['dark_mode'] ?? 0]) >
     <!-- Loader starts-->
     <div class="loader-wrapper">
         <div class="theme-loader">

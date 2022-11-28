@@ -25,7 +25,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|unique:menus,name',
-            'language' => 'required|string',
+            'lang' => 'required|string',
             'enabled' => 'required|boolean'
         ];
     }

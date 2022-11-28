@@ -183,10 +183,10 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="dark-mode">{{__('adm.dark_mode')}}</label>
                                                 <select class="form-select digits" id="dark-mode" name="settings[dark_mode]">
-                                                    <option value="0" @if($item->settings['dark_mode'] == 0) selected @endif>
+                                                    <option value="0" @if(empty($item->settings) || $item->settings['dark_mode'] == 0) selected @endif>
                                                         {{__('adm.disabled')}}
                                                     </option>
-                                                    <option value="1" @if($item->settings['dark_mode'] == 1) selected @endif>
+                                                    <option value="1" @if(!empty($item->settings) && $item->settings['dark_mode'] == 1) selected @endif>
                                                         {{__('adm.enabled')}}
                                                     </option>
                                                 </select>

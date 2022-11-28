@@ -17,7 +17,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('adm_data/assets/css/colorbox.css') }}">
 
 <!-- Bootstrap css-->
-<link rel="stylesheet" type="text/css" href="{{asset('adm_data/assets/css/bootstrap.css')}}">
+{{--<link rel="stylesheet" type="text/css" href="{{asset('adm_data/assets/css/bootstrap.css')}}">--}}
+<link rel="stylesheet" type="text/css" href="{{asset('adm_data/assets/libs/bootstrap/css/bootstrap.css')}}">
 <!-- App css-->
 <link rel="stylesheet" type="text/css" href="{{asset('adm_data/assets/css/style.css')}}">
 
@@ -26,3 +27,5 @@
 <link rel="stylesheet" type="text/css" href="{{asset('adm_data/assets/css/responsive.css')}}">
 
 <link rel="stylesheet" type="text/css" href="{{asset('adm_data/assets/css/main.css')}}">
+
+@livewireStyles

@@ -47,7 +47,16 @@ return [
     'visit_site' => 'Visit site',
     'settings' => 'Settings',
     'content_system' => 'Content System',
-    'content_types' => 'Content Types',
+    'slug' => 'Slug',
+    'key' => 'Key',
+    'position' => 'Position',
+    'icon' => 'Icon',
+    'select_icon' => 'Select Icon',
+    'add' => 'Add',
+    'save' => 'Save',
+    'required' => 'Required',
+    'default' => 'Default',
+    'type' => 'Type',
 
     //menu
     'menu' => 'Menu',
@@ -122,8 +131,19 @@ return [
     'remove_selected_item' => 'Remove selected item',
     'restore_selected_items' => 'Restore selected items',
     'are_you_sure' => 'Are you sure?',
+    'wrong_empty_key_label' => 'You have empty key or label',
 
     //admin menu
     'users_system' => 'Users System',
     'adm_system' => 'Adm system',
+
+    //Content types
+    'content_types' => 'Content Types',
+    'singular_name' => 'Singular name',
+    'create_content_type' => 'Create content type',
+    'edit_content_type' => 'Edit content type',
+    'delete_content_type' => 'Delete content type',
+    'custom_fields' => 'Custom fields',
+    'categories' => 'Categories',
+    'content_type_configuration' => 'Content type configuration',
 ];

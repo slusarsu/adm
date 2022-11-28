@@ -78,13 +78,18 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
+    public function contentTypes()
+    {
+        return $this->hasMany(ContentType::class);
+    }
+
     public function getSettings()
     {
-        $profile = $this->profile()->first();
-        dd($profile);
-        if(!empty($profile->settings)) {
-            return json_decode($profile->settings, 1);
-        }
+//        $profile = $this->profile()->first();
+//        dd($profile);
+//        if(!empty($profile->settings)) {
+//            return json_decode($profile->settings, 1);
+//        }
 
         return null;
     }

@@ -18,4 +18,5 @@ $(document).on('click','.popup_selector',function (event) {
 function processSelectedFile(filePath, requestingField) {
     $('#' + requestingField).val(filePath).trigger('change');
     $('#' + requestingField + '_img').attr('src', '/' + filePath).trigger('change');
+    console.log(requestingField, filePath);
 }

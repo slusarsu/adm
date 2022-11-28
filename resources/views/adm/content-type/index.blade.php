@@ -42,14 +42,17 @@
                                     <th class="adm-sortable id-column" data-name="id">
                                         ID
                                     </th>
-                                    <th class="adm-sortable" data-name="code">
-                                        {{__('adm.language')}}
+                                    <th class="id-column">
+                                        {{__('adm.icon')}}
                                     </th>
                                     <th class="adm-sortable" data-name="name">
                                         {{__('adm.name')}}
                                     </th>
-                                    <th class="adm-sortable" data-name="native_name">
-                                        {{__('adm.enabled')}}
+                                    <th class="adm-sortable" data-name="key">
+                                        {{__('adm.key')}}
+                                    </th>
+                                    <th class="adm-sortable" data-name="singular_name">
+                                        {{__('adm.singular_name')}}
                                     </th>
                                     <th class="text-end action-column">
                                         {{__('adm.actions')}}
@@ -63,9 +66,10 @@
                                                 <x-adm.table.checkbox-item :id="$item->id"/>
                                             </th>
                                             <td>{{$item->id}}</td>
-                                            <td>{{$item->lang}}</td>
+                                            <td>{!! $item->icon !!}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->enabled}}</td>
+                                            <td>{{$item->key}}</td>
+                                            <td>{{$item->singular_name}}</td>
                                             <td class="text-end">
                                                 <x-adm.button.table-actions
                                                     :editUrl="route('adm.content-type-edit', $item->id)"

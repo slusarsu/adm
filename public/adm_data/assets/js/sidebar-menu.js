@@ -243,6 +243,8 @@ $("#left-arrow").click(function () {
         }
     });
 
-    $('.custom-scrollbar').animate({
-        scrollTop: $('a.nav-link.menu-title.active').offset().top - 500
-    }, 1000);
+    if($('a.nav-link.menu-title.active').offset() != undefined) {
+        $('.custom-scrollbar').animate({
+            scrollTop: $('a.nav-link.menu-title.active').offset().top - 500
+        }, 1000);
+    }

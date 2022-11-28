@@ -2,6 +2,8 @@
 
 namespace App\Adm\Configs;
 
+use App\Models\ContentType;
+
 class MenuConfig
 {
     /**
@@ -97,6 +99,34 @@ class MenuConfig
 
             ],
 
+            $this->getContentTypeMenu(),
+
         ];
+    }
+
+    private function getContentTypeMenu()
+    {
+        $contentTypes = ContentType::query()->where('enabled', true)->orderBy('position')->get();
+
+        $items = [];
+
+        foreach ($contentTypes as $item) {
+            $items[] = [
+                'item_id' => $item->key,
+                'type' => 'link',
+                'title' => $item->name,
+                'icon' => $item->icon,
+                'url' => route('adm.file-manager')
+            ];
+        }
+
+        return [
+            'section' => trans('adm.content_types'),
+            'section_id' => 'adm_system',
+
+            'items' => $items
+        ];
+
+
     }
 }

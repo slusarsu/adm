@@ -13,3 +13,10 @@
         <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close" data-bs-original-title="" title=""></button>
     </div>
 @endif
+
+@if (session('error'))
+    <div class="alert alert-danger dark alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close" data-bs-original-title="" title=""></button>
+    </div>
+@endif

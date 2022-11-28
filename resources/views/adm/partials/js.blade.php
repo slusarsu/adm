@@ -7,7 +7,8 @@
 <script src="{{asset('adm_data/assets/js/config.js')}}"></script>
 <!-- Bootstrap js-->
 <script src="{{asset('adm_data/assets/js/bootstrap/popper.min.js')}}"></script>
-<script src="{{asset('adm_data/assets/js/bootstrap/bootstrap.min.js')}}"></script>
+{{--<script src="{{asset('adm_data/assets/js/bootstrap/bootstrap.min.js')}}"></script>--}}
+<script src="{{asset('adm_data/assets/libs/bootstrap/js/bootstrap.min.js')}}"></script>
 <!-- Plugins JS start-->
 @stack('scripts')
 <!-- Plugins JS Ends-->
@@ -26,4 +27,6 @@
 <script src="{{asset('adm_data/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('adm_data/assets/js/editor/ckeditor/adapters/jquery.js')}}"></script>
 <script src="{{asset('adm_data/assets/js/editor/ckeditor/styles.js')}}"></script>
-<script src="{{asset('adm_data/assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
+{{--<script src="{{asset('adm_data/assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>--}}
+
+@livewireScripts
