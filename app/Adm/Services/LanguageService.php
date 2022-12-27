@@ -18,8 +18,6 @@ class LanguageService
         $this->baseModel = $baseModel;
     }
 
-
-
     /**
      * @param Request $request
      * @param int $paginate
